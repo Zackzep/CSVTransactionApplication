@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Zack Zepezauer
+//3-22-23
+//124 Final
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClassLibrary;
 
 namespace Prog_124_W23_Final
 {
@@ -23,6 +27,49 @@ namespace Prog_124_W23_Final
         public MainWindow()
         {
             InitializeComponent();
+            
+            //Call Preload to have users on load
+            Data.PreLoad();
+        }
+
+        //Login Button
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            //Validation method call
+            ValidateUser();
+        }
+
+        //Method to validate credentials
+        public void ValidateUser()
+        {
+            //Declare variables for text box inputs
+            string adminInputName = tbUsername.Text;
+            string adminInputPassword = tbPassword.Text;
+
+            //Foreach to run through accounts
+            foreach (UserAccount user in Data.accounts)
+            {
+                //If statement to call IsUser method
+                if (user.IsUser(adminInputName))
+                {
+                    //If statement to call ValidateUser method
+                    if (user.ValidateUser(adminInputName, adminInputPassword))
+                    {
+                        //Sets user in loop to current user
+                        Data.currentUser = user;
+                        //Checks what current users role is, then opens appropriate window
+                        if (Data.currentUser.UserRole == UserAccount.Role.Admin)
+                        {
+                            new AdminWindow().Show();
+                        }
+                        else
+                        {
+                            new UserWindow().Show();
+                        }
+                    }
+
+                }
+            }
         }
     }
 }

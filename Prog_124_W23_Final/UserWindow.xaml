@@ -1,0 +1,42 @@
+﻿<Window x:Class="Prog_124_W23_Final.UserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prog_124_W23_Final"
+        mc:Ignorable="d"
+        Title="UserWindow" Height="450" Width="800" Background="#FFA6AFD2">
+    <Canvas>
+        <Canvas Height="159" Width="179" Canvas.Left="38" Canvas.Top="58" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FFE5E6D1">
+            <Label Content="Name" Canvas.Left="19" Canvas.Top="16"/>
+            <Label Content="Price" Canvas.Left="19" Canvas.Top="70"/>
+            <TextBox x:Name="tbAddTransName" Canvas.Left="19" TextWrapping="Wrap" Text="TextBox" Canvas.Top="47" Width="120"/>
+            <TextBox x:Name="tbAddTransPrice" Canvas.Left="19" TextWrapping="Wrap" Text="TextBox" Canvas.Top="101" Width="120"/>
+            <Button x:Name="btnAddTransaction" Content="Add Transaction" Canvas.Left="19" Canvas.Top="129" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Click="btnAddTransaction_Click"/>
+        </Canvas>
+        <Canvas Height="111" Width="179" Canvas.Left="38" Canvas.Top="240" Background="#FFE5E6D1" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Label Content="Export New CSV" Canvas.Left="20" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBox x:Name="tbCSVName" Canvas.Left="20" TextWrapping="Wrap" Text="TextBox" Canvas.Top="41" Width="134" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Button x:Name="btnExportCSV" Content="Export" Canvas.Left="41" Canvas.Top="73" HorizontalAlignment="Left" VerticalAlignment="Top" Width="92" Height="28" Click="btnExportCSV_Click"/>
+        </Canvas>
+        <Canvas Height="341" Width="179" Canvas.Left="593" Canvas.Top="58" Background="#FFE5E6D1" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Label Content="Sort Options" Canvas.Left="10" HorizontalAlignment="Center" VerticalAlignment="Top" Width="183" FontSize="28"/>
+            <Button x:Name="btnSortName" Content="By Name" Canvas.Left="52" Canvas.Top="75" HorizontalAlignment="Center" VerticalAlignment="Top" Width="82" Height="39" Click="btnSortName_Click"/>
+            <Button x:Name="btnSortTime" Content="By Time" Canvas.Left="52" Canvas.Top="163" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Height="39" Click="btnSortTime_Click"/>
+            <Button x:Name="btnSortPrice" Content="By Price" Canvas.Left="52" Canvas.Top="254" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Height="39" Click="btnSortPrice_Click"/>
+        </Canvas>
+        <ListView x:Name="lvDisplayTransactions" Height="343" Width="344" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Top="56" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="234">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}"/>
+                    <GridViewColumn Header="Tax" DisplayMemberBinding="{Binding Tax}"/>
+                    <GridViewColumn Header="Total" DisplayMemberBinding="{Binding Total}"/>
+                    <GridViewColumn Header="Time" DisplayMemberBinding="{Binding TransactionTime}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnLogout" Content="Logout" Canvas.Left="70" Canvas.Top="377" HorizontalAlignment="Center" VerticalAlignment="Top" Width="114" Height="34" Click="btnLogout_Click"/>
+    </Canvas>
+
+</Window>

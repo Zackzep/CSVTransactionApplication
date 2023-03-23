@@ -6,7 +6,14 @@
         xmlns:local="clr-namespace:Prog_124_W23_Final"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Canvas>
+    <Canvas Background="#FF9D9C7D">
+        <Canvas Height="252" Width="424" Canvas.Left="188" Canvas.Top="81" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FF9098B1">
+            <Label Content="Username" Canvas.Left="85" Canvas.Top="66"/>
+            <Label Content="Password" Canvas.Left="85" Canvas.Top="148" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbUsername" Canvas.Left="212" TextWrapping="Wrap" Text="TextBox" Canvas.Top="70" Width="120"/>
+            <TextBox x:Name="tbPassword" Canvas.Left="212" TextWrapping="Wrap" Text="TextBox" Canvas.Top="156" Width="120"/>
+            <Button x:Name="btnLogin" Content="Login" Canvas.Left="148" Canvas.Top="199" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100" Height="29" Click="btnLogin_Click"/>
+        </Canvas>
 
     </Canvas>
 </Window>
