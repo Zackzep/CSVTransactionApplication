@@ -66,10 +66,14 @@ namespace Prog_124_W23_Final
                         {
                             new UserWindow().Show();
                         }
+                        // Exit the loop once the user is validated and a window is opened
+                        return;
                     }
 
                 }
             }
+            // If no user was found display an error message
+            MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

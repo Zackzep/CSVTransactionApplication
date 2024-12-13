@@ -60,6 +60,14 @@ namespace Prog_124_W23_Final
             UpdateListView();
         }
 
+        //Logout button
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            // Your logout logic here
+            Data.currentUser = null;
+            this.Close();
+        }
+
         //Method to fill combobox
         public void PreloadComboBox()
         {

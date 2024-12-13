@@ -7,6 +7,7 @@ using System.Numerics;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows;
 using ClassLibrary;
 using CsvHelper;
 
@@ -35,12 +36,23 @@ namespace Prog_124_W23_Final
         //Preload to save to JSON and have users on load
         public static void PreLoad()
         {
-            UserAccount newUser = new UserAccount("Me", "Z", "Z", UserAccount.Role.Admin);
-            UserAccount newUser2 = new UserAccount("Someone", "A", "A", UserAccount.Role.User);
-            Data.AddUser(newUser);
-            Data.AddUser(newUser2);
-            SaveUsers();
+            
 
+            // Check if accounts list is already populated
+            if (accounts == null || accounts.Count == 0)
+            {
+                // Create and add default users if the list is empty
+                UserAccount newUser = new UserAccount("Me", "Z", "Z", UserAccount.Role.Admin);
+                UserAccount newUser2 = new UserAccount("Someone", "A", "A", UserAccount.Role.User);
+
+                Data.AddUser(newUser);
+                Data.AddUser(newUser2);
+
+                // Save users after adding defaults
+                SaveUsers();
+
+                MessageBox.Show("Default users loaded.", "Debug Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         //Method to add user and save to JSON

@@ -145,6 +145,13 @@ namespace Prog_124_W23_Final
         {
             //Sets current user to null
             Data.currentUser = null;
+
+            //Close the window
+            this.Close();
+
+            //Redirect to the login window
+            //MainWindow loginWindow = new MainWindow();
+            //loginWindow.Show();
         }
 
         

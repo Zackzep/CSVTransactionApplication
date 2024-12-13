@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prog_124_W23_Final"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800">
+        Title="AdminWindow" Height="475" Width="800">
     <Canvas Background="#FF6E647C">
         <Canvas Height="434" Width="800">
             <Canvas Height="326" Width="307" Canvas.Left="55" Canvas.Top="54" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF959595">
@@ -19,6 +19,7 @@
                 <ComboBox x:Name="cbRole" Canvas.Left="117" Canvas.Top="217" Width="149" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Button x:Name="btnAddUser" Content="Add User" Canvas.Left="89" Canvas.Top="268" HorizontalAlignment="Left" VerticalAlignment="Top" Width="129" Height="34" Click="btnAddUser_Click"/>
             </Canvas>
+            <Button Content="Logout" Name="btnLogout" Width="100" Height="30" Click="btnLogout_Click" Canvas.Left="329" Canvas.Top="394" />
             <ListView x:Name="lvAdminPageDisplay" Height="326" Width="342" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="400" Canvas.Top="54" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <ListView.View>
                     <GridView>
